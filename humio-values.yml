@@ -1,0 +1,26 @@
+---
+humio-core:
+  enabled: true
+  replicas: 5
+  primaryStorage:
+    type: remote
+    mountPath: /data/humio-data
+    logsMountPath: /data/logs
+  storageClassName: gp2
+  cp-helm-charts:
+    cp-zookeeper:
+      persistence:
+        enabled: false
+    cp-kafka:
+      persistence:
+        enabled: true
+        storageClass: gp2
+humio-fluentbit:
+  enabled: true
+  es:
+    autodiscovery: true
+humio-metrics:
+  enabled: false
+global:
+  sharedTokens:
+    fluentbit: {kubernetes: in-cluster}
