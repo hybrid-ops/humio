@@ -1,7 +1,7 @@
 ---
 humio-core:
   enabled: true
-  replicas: 5
+  replicas: 4
   primaryStorage:
     type: remote
     mountPath: /data/humio-data
@@ -15,6 +15,15 @@ humio-core:
       persistence:
         enabled: true
         storageClass: gp2
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: node_type
+            operator: In
+            values:
+            - humio
 humio-fluentbit:
   enabled: true
   es:
