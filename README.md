@@ -1,6 +1,12 @@
 # humio
 ## Log manager for BoD
 
+### Pre-reqs
+The deployment config uses node affinity to select dedicated nodes for Humio. So before running please pick and label one or two nodes like this:
+```
+oc label node ip-10-0-146-51.ec2.internal node_type=humio
+```
+
 ### Run Instructions
 - Log into the cluster (in this case the hub cluster)
 - If you haven't already, clone this repo to your boot node. 
