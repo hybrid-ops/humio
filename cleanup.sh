@@ -1,6 +1,7 @@
 #!/bin/bash
 
-helm3 uninstall humio
+#helm3 uninstall humio
+helm delete humio --purge --tls
 kubectl delete namespace humio --cascade=true
 oc delete scc humio-fluentbit
 oc delete ds humio-fluentbit

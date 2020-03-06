@@ -1,7 +1,7 @@
 ---
 humio-core:
   enabled: true
-  replicas: 4
+  replicas: 3
   primaryStorage:
     type: remote
     mountPath: /data/humio-data
@@ -15,6 +15,7 @@ humio-core:
       persistence:
         enabled: true
         storageClass: gp2
+        size: 15Gi
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
