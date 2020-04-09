@@ -13,7 +13,8 @@ oc label node ip-10-0-146-51.ec2.internal node_type=humio
 - Change directory into humio directory and edit humio-values.yml if needed. Some variables that are commonly changed. Otherwise the default works for a MCM hub:
    - Number of replicas
    - StorageClass
-- Run `install.sh` with no arguments. This will install the humio release under namespace `humio`. The install script will recycle after scc patch.
+- Edit install.sh if you want to change the release name or name space (default: `humio`)
+- Run `install.sh` with no arguments. This will install the humio release under namespace `humio`. The install script will recycle the humio pods after scc patch.
 
 ```
 # ./install.sh
