@@ -7,6 +7,11 @@ The deployment config uses node affinity to select dedicated nodes for Humio. So
 oc label node ip-10-0-146-51.ec2.internal node_type=humio
 ```
 
+Also add the docker.io/fluent/* to the default cluster image policy:
+```
+kubectl edit clusterimagepolicy ibmcloud-default-cluster-image-policy
+```
+
 ### Run Instructions
 - Log into the cluster (in this case the hub cluster)
 - If you haven't already, clone this repo to your boot node. 
